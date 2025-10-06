@@ -1,0 +1,32 @@
+[package]
+name = "rust-order-execution-engine"
+version = "0.1.0"
+edition = "2021"
+authors = ["Gabriel Demetrios Lafis"]
+description = "High-performance order execution engine for financial markets"
+license = "MIT"
+repository = "https://github.com/gabriellafis/rust-order-execution-engine"
+
+[dependencies]
+tokio = { version = "1.40", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+crossbeam = "0.8"
+uuid = { version = "1.10", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+tokio-test = "0.4"
+
+[[bench]]
+name = "order_matching"
+harness = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
