@@ -14,6 +14,22 @@
 
 A high-performance order execution engine for financial markets, built with Rust. This engine provides ultra-low latency order processing, efficient order matching, and comprehensive execution metrics suitable for quantitative trading platforms.
 
+```mermaid
+flowchart LR
+    A[Order Input\nMarket / Limit / Stop] --> B[Validation\nSchema & Risk Check]
+    B --> C[Matching Engine\nFIFO Price-Time Priority]
+    C --> D[Execution\nTrade Generation]
+    D --> E[Settlement\nPosition Update]
+    E --> F[Reporting\nMetrics & P&L]
+
+    style A fill:#1a1a2e,stroke:#e94560,color:#fff
+    style B fill:#16213e,stroke:#0f3460,color:#fff
+    style C fill:#0f3460,stroke:#533483,color:#fff
+    style D fill:#533483,stroke:#e94560,color:#fff
+    style E fill:#16213e,stroke:#e94560,color:#fff
+    style F fill:#1a1a2e,stroke:#e94560,color:#fff
+```
+
 ### Key Features
 
 - **Ultra-Low Latency**: Microsecond-level order processing with optimized data structures
